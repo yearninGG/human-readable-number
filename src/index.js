@@ -1,7 +1,4 @@
 module.exports = function toReadable (number) {
-  'use strict'
-
-function toReadable(number) {
     number = String(number);
     let initLen = number.length;
 
@@ -30,7 +27,7 @@ function toReadable(number) {
 
 
     function digitsOfTens(digit) {
-        if (specialCase(number)) {
+        if (specialCase(digit)) {
             let arr = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
 
             for (let i = 1; i <= arr.length; i++) {
@@ -41,7 +38,7 @@ function toReadable(number) {
             for (let i = 1; i <= arr.length; i++) {
                 if (+digit[0] === i) {
 
-                    if (digit[1] === 0) {
+                    if (+digit[1] === 0) {
                         return arr[i - 1];
 
                     } else {
@@ -71,10 +68,8 @@ function toReadable(number) {
             }
         }
     }
-}
 
-function specialCase(number) {
-    return (+number[0] === 1 && +number[1] >= 1 && +number[1] <= 9);
-}
-
+    function specialCase(number) {
+        return (+number[0] === 1 && +number[1] >= 1 && +number[1] <= 9);
+    }
 }
